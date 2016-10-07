@@ -1,44 +1,44 @@
 var frame_1 = require("ui/frame");
-var FragmentClass = (function (_super) {
-    __extends(FragmentClass, _super);
-    function FragmentClass() {
+var MyCustomNativeScriptFragment = (function (_super) {
+    __extends(MyCustomNativeScriptFragment, _super);
+    function MyCustomNativeScriptFragment() {
         _super.call(this);
         return global.__native(this);
     }
-    FragmentClass.prototype.onHiddenChanged = function (hidden) {
+    MyCustomNativeScriptFragment.prototype.onHiddenChanged = function (hidden) {
         this._callbacks.onHiddenChanged(this, hidden, _super.prototype.onHiddenChanged);
     };
-    FragmentClass.prototype.onCreateAnimator = function (transit, enter, nextAnim) {
+    MyCustomNativeScriptFragment.prototype.onCreateAnimator = function (transit, enter, nextAnim) {
         var result = this._callbacks.onCreateAnimator(this, transit, enter, nextAnim, _super.prototype.onCreateAnimator);
         return result;
     };
-    FragmentClass.prototype.onCreate = function (savedInstanceState) {
+    MyCustomNativeScriptFragment.prototype.onCreate = function (savedInstanceState) {
         if (!this._callbacks) {
             frame_1.setFragmentCallbacks(this);
         }
         this.setHasOptionsMenu(true);
         this._callbacks.onCreate(this, savedInstanceState, _super.prototype.onCreate);
     };
-    FragmentClass.prototype.onCreateView = function (inflater, container, savedInstanceState) {
+    MyCustomNativeScriptFragment.prototype.onCreateView = function (inflater, container, savedInstanceState) {
         var result = this._callbacks.onCreateView(this, inflater, container, savedInstanceState, _super.prototype.onCreateView);
         return result;
     };
-    FragmentClass.prototype.onSaveInstanceState = function (outState) {
+    MyCustomNativeScriptFragment.prototype.onSaveInstanceState = function (outState) {
         this._callbacks.onSaveInstanceState(this, outState, _super.prototype.onSaveInstanceState);
     };
-    FragmentClass.prototype.onDestroyView = function () {
+    MyCustomNativeScriptFragment.prototype.onDestroyView = function () {
         this._callbacks.onDestroyView(this, _super.prototype.onDestroyView);
     };
-    FragmentClass.prototype.onDestroy = function () {
+    MyCustomNativeScriptFragment.prototype.onDestroy = function () {
         this._callbacks.onDestroy(this, _super.prototype.onDestroy);
     };
-    FragmentClass.prototype.toString = function () {
+    MyCustomNativeScriptFragment.prototype.toString = function () {
         return this._callbacks.toStringOverride(this, _super.prototype.toString);
     };
-    FragmentClass = __decorate([
+    MyCustomNativeScriptFragment = __decorate([
         JavaProxy("com.example.myexistingapplication.MyCustomNativeScriptFragment")
-    ], FragmentClass);
-    return FragmentClass;
+    ], MyCustomNativeScriptFragment);
+    return MyCustomNativeScriptFragment;
 }(android.app.Fragment));
-frame_1.setFragmentClass(FragmentClass);
+frame_1.setFragmentClass(MyCustomNativeScriptFragment);
 //# sourceMappingURL=fragment.js.map

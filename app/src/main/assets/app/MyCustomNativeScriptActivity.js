@@ -1,40 +1,41 @@
 var frame_1 = require("ui/frame");
-var NativeScriptActivity = (function (_super) {
-    __extends(NativeScriptActivity, _super);
-    function NativeScriptActivity() {
+require("./MyCustomNativeScriptFragment");
+var MyCustomNativeScriptActivity = (function (_super) {
+    __extends(MyCustomNativeScriptActivity, _super);
+    function MyCustomNativeScriptActivity() {
         _super.call(this);
         return global.__native(this);
     }
-    NativeScriptActivity.prototype.onCreate = function (savedInstanceState) {
+    MyCustomNativeScriptActivity.prototype.onCreate = function (savedInstanceState) {
         if (!this._callbacks) {
             frame_1.setActivityCallbacks(this);
         }
         this._callbacks.onCreate(this, savedInstanceState, _super.prototype.onCreate);
     };
-    NativeScriptActivity.prototype.onSaveInstanceState = function (outState) {
+    MyCustomNativeScriptActivity.prototype.onSaveInstanceState = function (outState) {
         this._callbacks.onSaveInstanceState(this, outState, _super.prototype.onSaveInstanceState);
     };
-    NativeScriptActivity.prototype.onStart = function () {
+    MyCustomNativeScriptActivity.prototype.onStart = function () {
         this._callbacks.onStart(this, _super.prototype.onStart);
     };
-    NativeScriptActivity.prototype.onStop = function () {
+    MyCustomNativeScriptActivity.prototype.onStop = function () {
         this._callbacks.onStop(this, _super.prototype.onStop);
     };
-    NativeScriptActivity.prototype.onDestroy = function () {
+    MyCustomNativeScriptActivity.prototype.onDestroy = function () {
         this._callbacks.onDestroy(this, _super.prototype.onDestroy);
     };
-    NativeScriptActivity.prototype.onBackPressed = function () {
+    MyCustomNativeScriptActivity.prototype.onBackPressed = function () {
         this._callbacks.onBackPressed(this, _super.prototype.onBackPressed);
     };
-    NativeScriptActivity.prototype.onRequestPermissionsResult = function (requestCode, permissions, grantResults) {
+    MyCustomNativeScriptActivity.prototype.onRequestPermissionsResult = function (requestCode, permissions, grantResults) {
         this._callbacks.onRequestPermissionsResult(this, requestCode, permissions, grantResults, undefined);
     };
-    NativeScriptActivity.prototype.onActivityResult = function (requestCode, resultCode, data) {
+    MyCustomNativeScriptActivity.prototype.onActivityResult = function (requestCode, resultCode, data) {
         this._callbacks.onActivityResult(this, requestCode, resultCode, data, _super.prototype.onActivityResult);
     };
-    NativeScriptActivity = __decorate([
+    MyCustomNativeScriptActivity = __decorate([
         JavaProxy("com.example.myexistingapplication.MyCustomNativeScriptActivity")
-    ], NativeScriptActivity);
-    return NativeScriptActivity;
+    ], MyCustomNativeScriptActivity);
+    return MyCustomNativeScriptActivity;
 }(android.app.Activity));
 //# sourceMappingURL=activity.js.map

@@ -94,5 +94,6 @@
     "host": "packages-12-west.internal.npmjs.com",
     "tmp": "tmp/nativescript-angular-1.0.1.tgz_1475061741086_0.10481081600300968"
   },
-  "directories": {}
+  "directories": {},
+  "readme": "ERROR: No README data found!"
 }
