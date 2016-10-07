@@ -1,0 +1,20 @@
+var frame_1 = require('ui/frame');
+var page_1 = require('ui/page');
+var core_1 = require('@angular/core');
+var platform_1 = require("platform");
+exports.APP_ROOT_VIEW = new core_1.OpaqueToken('App Root View');
+exports.DEVICE = new core_1.OpaqueToken('platfrom device');
+exports.defaultPageProvider = { provide: page_1.Page, useFactory: getDefaultPage };
+function getDefaultPage() {
+    var frame = frame_1.topmost();
+    if (frame) {
+        return frame.currentPage;
+    }
+    else {
+        return null;
+    }
+}
+exports.getDefaultPage = getDefaultPage;
+exports.defaultFrameProvider = { provide: frame_1.Frame, useFactory: frame_1.topmost };
+exports.defaultDeviceProvider = { provide: exports.DEVICE, useValue: platform_1.device };
+//# sourceMappingURL=platform-providers.js.map
